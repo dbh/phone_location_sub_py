@@ -20,8 +20,6 @@ def on_connect(client, userdata, flags, rc):
 def on_message(client, userdata, msg):
     print(msg.topic+" "+str(msg.payload))
 
-    # obj = json.loads(msg.payload)
-    # obj = json.loads(str(msg.payload))
     obj = str(msg.payload)
     obj = obj[2:-1]
     
@@ -82,15 +80,5 @@ with Session(engine) as session:
     print('PhoneGeo do something. Get first')
     res = session.query(PhoneGeo).first()
     print(res)
-
-    # pg = PhoneGeo()
-    # pg.latitude=33.613985767619326
-    # pg.longitude=-111.92835110250108
-    # pg.name='NULL'
-    # pg.device_id='D5C427A3-3733-45F7-97F9-2E657E2E1859'
-    # pg.timestamp=123
-    # res = session.add(pg)
-    # print(f'add pg {pg}: res {res}')
-    # session.commit()
 
 client.loop_forever()
