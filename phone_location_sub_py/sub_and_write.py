@@ -20,15 +20,12 @@ def on_connect(client, userdata, flags, rc):
 def on_message(client, userdata, msg):
     print(msg.topic+" "+str(msg.payload))
 
-    obj = str(msg.payload)
-    obj = obj[2:-1]
+    obj = str(msg.payload)[2:-1]
     
     print(obj)
     print('converting to json')
     obj = json.loads(obj)
     print('got json')
-
-
 
     pg = PhoneGeo()
     pg.latitude=obj['latitude']
@@ -41,10 +38,6 @@ def on_message(client, userdata, msg):
     res = session.add(pg)
     print(f'add pg {pg}: res {res}')
     session.commit()
-
-
-
-
 
 client = mqtt.Client()
 client.on_connect = on_connect
@@ -69,16 +62,5 @@ client.connect(os.getenv('MQTT_SERVER'), 1883, 60)
 
 print('Create database connection')
 engine = create_engine(db_conn, pool_recycle=3600)
-
-with Session(engine) as session:
-    print('Creating engine')
-    print(engine)
-
-    print('making session')
-    print(session)
-
-    print('PhoneGeo do something. Get first')
-    res = session.query(PhoneGeo).first()
-    print(res)
-
+session = Session(engine)
 client.loop_forever()
