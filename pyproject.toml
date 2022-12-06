@@ -7,10 +7,9 @@ readme = "README.md"
 packages = [{include = "phone_location_sub_py"}]
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.9"
 paho-mqtt = "^1.6.1"
 sqlalchemy = "^1.4.44"
-psycopg2 = "^2.9.5"
 mysqlclient = "^2.1.1"
 
 

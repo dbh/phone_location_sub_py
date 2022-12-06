@@ -11,7 +11,7 @@ class PhoneGeo(Base):
     timestamp = Column(String)
     latitude = Column(DECIMAL(10,8))
     longitude = Column(DECIMAL(11,8))
-    event_ts = Column(TIMESTAMP),
+    event_ts = Column(TIMESTAMP)
     speed = Column(DECIMAL(5,2))
 
     def __repr__(self):
