@@ -1,7 +1,7 @@
 import os 
 import json
 import paho.mqtt.client as mqtt
-from sqlalchemy import create_engine, event
+from sqlalchemy import create_engine
 from sqlalchemy.orm import Session
 
 from base import Base
@@ -49,7 +49,7 @@ mqtt_password = os.getenv('MQTT_PASSWORD')
 mqtt_topic = os.getenv('MQTT_TOPIC')
 db_conn = os.getenv('DB_CONN')
 
-print(f'server: {mqtt_server}, user: {mqtt_password}, pass: {mqtt_password}, topic: {mqtt_topic}')
+print(f'server: {mqtt_server}, user: {mqtt_user}, topic: {mqtt_topic}')
 print(f'db_conn: {db_conn}')
 
 client.username_pw_set(os.getenv('MQTT_USER'),os.getenv('MQTT_PASSWORD'))

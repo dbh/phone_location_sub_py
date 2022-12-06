@@ -15,10 +15,12 @@ class PhoneGeo(Base):
     speed = Column(DECIMAL(5,2))
 
     def __repr__(self):
-        return "<phone_geo(name='%s', device_id='%s', timestamp='%s', latitude='%s', longitude='%s')>" % (
+        return "<phone_geo(name='%s', device_id='%s', timestamp='%s', event_ts='%s' latitude='%s', longitude='%s' speed='%s')>" % (
             self.name,
             self.device_id,
             self.timestamp,
+            self.event_ts,
             self.latitude,
             self.longitude,
+            self.speed
         )
