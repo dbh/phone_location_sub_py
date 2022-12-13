@@ -4,9 +4,12 @@ import paho.mqtt.client as mqtt
 from sqlalchemy import create_engine
 from sqlalchemy.orm import Session
 
+from dotenv import load_dotenv
+
 from base import Base
 from model import PhoneGeo
 
+load_dotenv()
 
 # The callback for when the client receives a CONNACK response from the server.
 def on_connect(client, userdata, flags, rc):
