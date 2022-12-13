@@ -30,5 +30,7 @@ CREATE TABLE phone_geo (
 
 Run it
 ```bash
-poetry run python phone_location_sub_py/sub_and_write.py 
+python -m pip install -r requirements.txt
+nohup python phone_location_sub_py/sub_and_write.py & 
+
 ```
