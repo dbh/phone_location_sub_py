@@ -6,7 +6,6 @@ from sqlalchemy.orm import Session
 
 from dotenv import load_dotenv
 
-from base import Base
 from model import PhoneGeo
 
 load_dotenv()
