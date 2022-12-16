@@ -47,9 +47,6 @@ mqtt_password = os.getenv('MQTT_PASSWORD')
 mqtt_topic = os.getenv('MQTT_TOPIC')
 db_conn = os.getenv('DB_CONN')
 
-print(f'server: {mqtt_server}, user: {mqtt_user}, topic: {mqtt_topic}')
-print(f'db_conn: {db_conn}')
-
 client.username_pw_set(os.getenv('MQTT_USER'),os.getenv('MQTT_PASSWORD'))
 client.connect(os.getenv('MQTT_SERVER'), 1883, 60)
 
