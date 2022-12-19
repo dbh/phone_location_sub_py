@@ -24,14 +24,11 @@ def on_message(client, userdata, msg):
     obj = json.loads(obj)
     print('got json')
 
-    pg = PhoneGeo()
-    pg.latitude=obj['latitude']
-    pg.longitude=obj['longitude']
-    pg.name=obj['device_name']
-    pg.device_id=obj['device_id']
-    pg.timestamp=obj['timestamp']
-    pg.speed=obj['speed']
-    pg.event_ts = obj['event_ts']
+    pg = PhoneGeo(obj['device_name'], obj['device_id'], 
+        obj['timestamp'],
+        obj['latitude'], obj['longitude'], 
+        obj['speed'])    
+
     res = session.add(pg)
     print(f'add pg {pg}: res {res}')
     session.commit()

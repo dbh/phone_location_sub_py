@@ -11,15 +11,21 @@ class PhoneGeo(Base):
     timestamp = Column(String)
     latitude = Column(DECIMAL(10,8))
     longitude = Column(DECIMAL(11,8))
-    event_ts = Column(TIMESTAMP)
     speed = Column(DECIMAL(5,2))
 
+    def __init__(self, name, device_id, timestamp, latitude, longitude, speed):
+        self.name = name
+        self.device_id = device_id
+        self.timestamp = timestamp
+        self.latitude = latitude
+        self.longitude = longitude, 
+        self.speed = speed
+
     def __repr__(self):
-        return "<phone_geo(name='%s', device_id='%s', timestamp='%s', event_ts='%s' latitude='%s', longitude='%s' speed='%s')>" % (
+        return "<phone_geo(name='%s', device_id='%s', timestamp='%s', latitude='%s', longitude='%s' speed='%s')>" % (
             self.name,
             self.device_id,
             self.timestamp,
-            self.event_ts,
             self.latitude,
             self.longitude,
             self.speed
